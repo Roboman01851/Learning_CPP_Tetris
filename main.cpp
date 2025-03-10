@@ -1,8 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 const int Window_Size_X = 1200;
 const int Window_Size_Y = 900;
 const int Tetramino_Size = 50;
+
+// piece info
+
 
 int main()
 {
@@ -19,7 +23,10 @@ int main()
 	// Gameboard Grid
 	int gameboard[12][12] = { 0 };
     
-
+	// Gameboard piece
+	sf::RectangleShape cube({ Tetramino_Size, Tetramino_Size });
+	cube.setFillColor(sf::Color{ 255, 0, 0 });
+	
 
     while (window.isOpen())
     {
@@ -37,11 +44,11 @@ int main()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) //RIGHT
 				continue;
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) //UP
-				continue;
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) //UP
+                continue;
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) //DOWN
-				continue;
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) //DOWN
+                continue;
         }
 
 
@@ -49,6 +56,7 @@ int main()
         window.clear();
         window.draw(background);
         window.draw(gameoard_background);
+		
         window.display();
     }
 }
